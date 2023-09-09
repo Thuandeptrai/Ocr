@@ -10,6 +10,11 @@ function App() {
   // Create Function upload image
   function uploadImage(e) {
     const file = e.target.files[0];
+    // Check size of image larger than 10MB
+    if (file.size > 1024 * 1024 * 10) {
+      alert("Image size should be less than 10MB");
+      return;
+    }
     setImage(file);
   }
   async function convertImageToText(e) {
